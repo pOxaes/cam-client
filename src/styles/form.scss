@@ -1,0 +1,12 @@
+input {
+  background: none;
+  border: none;
+}
+
+.field {
+  padding: $u-medium;
+
+  &--border:not(:last-child) {
+    border-bottom: 1px solid $color-border;
+  }
+}

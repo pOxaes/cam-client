@@ -1,0 +1,177 @@
+.btn {
+  position: relative;
+  overflow: hidden;
+
+  $v-padding: $u-small + $u-tiny;
+  $line-height: 1.4rem;
+
+  padding: ($v-padding) $u-large;
+  font-size: 1.2rem;
+  line-height: $line-height;
+
+  border-radius: 3px;
+  border: none;
+  font-weight: 400;
+
+  $bg-color: $color-button;
+  $text-color: $color-button-text;
+
+  background-color: $bg-color;
+  color: $text-color;
+  transition: background-color $default-animation, color $default-animation;
+
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+
+  &:hover,
+  &:focus {
+    background-color: darken($bg-color, 3);
+    color: lighten($text-color, 3);
+    cursor: pointer;
+  }
+
+  &__container {
+    $spacing: $u-small + $u-tiny;
+    display: flex;
+
+    > .btn {
+      flex: 1 1;
+
+      + .btn {
+        margin-left: $spacing;
+      }
+    }
+
+    .card + & {
+      margin-top: $u-medium;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: $u-medium;
+    }
+  }
+
+  &__text {
+    display: block;
+    transition: all $quick-animation;
+    position: relative;
+    transform: translateY(0);
+  }
+
+  &--loading &__text {
+    transform: translateY(-$v-padding - $line-height);
+  }
+
+  .btn__loader {
+    transition: all $quick-animation;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, $v-padding + $line-height);
+  }
+
+  &--loading &__loader {
+    transform: translate(-50%, -50%);
+  }
+
+  &--loading,
+  &--loading:hover,
+  &--loading:focus {
+    background-color: darken($color-primary, 15);
+    color: white;
+  }
+
+
+  &--dark {
+    $bg-color: $color-button-dark;
+    $text-color: $color-button-dark-text;
+
+    background-color: $bg-color;
+    color: $text-color;
+
+    &:hover,
+    &:focus {
+      background-color: darken($bg-color, 3);
+      color: lighten($text-color, 3);
+    }
+
+    &.btn--loading,
+    &.btn--loading:hover,
+    &.btn--loading:focus {
+      background-color: $color-primary;
+      color: white;
+    }
+  }
+
+  &--warning {
+    $bg-color: $color-orange;
+    $text-color: #FFFFFF;
+
+    background-color: $bg-color;
+    color: $text-color;
+
+    &:hover,
+    &:focus {
+      background-color: darken($bg-color, 3);
+      color: lighten($text-color, 3);
+    }
+  }
+
+  &--alert {
+    $bg-color: $color-red;
+    $text-color: #FFFFFF;
+
+    background-color: $bg-color;
+    color: $text-color;
+
+    &:hover,
+    &:focus {
+      background-color: darken($bg-color, 3);
+      color: lighten($text-color, 3);
+    }
+  }
+
+  &--icon {
+    $text-color: $color-primary;
+
+    background: none;
+    color: $text-color;
+    border: none;
+
+    &:hover,
+    &:focus {
+      color: darken($text-color, 3);
+      background: none;
+    }
+
+    &[disabled] {
+      color: $color-text-light;
+    }
+
+    &.btn--dark[disabled] {
+      color: $color-text;
+    }
+  }
+
+  &--circle {
+    $circle-size: 7rem;
+    border-radius: 50%;
+    width: $circle-size;
+    height: $circle-size;
+  }
+
+  &--action {
+    position: fixed;
+    z-index: $z-actionButton;
+
+    bottom: $u-medium;
+    right: $u-medium;
+
+    padding: 0;
+    box-sizing: content-box;
+
+    border: 0 solid $color-primary;
+  }
+}

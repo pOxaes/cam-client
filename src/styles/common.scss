@@ -1,0 +1,38 @@
+html {
+    /* set base font-size to equiv "10px", which is adapted to rem unit */
+    font-size: 62.5%;
+    /* IE9-IE11 math fixing. See http://bit.ly/1g4X0bX */
+    /* thanks to @guardian, @victorbritopro and @eQRoeil */
+    font-size: calc(1em * .625);
+    /* disallow text zooming on orientation change (non standard property) */
+    text-size-adjust: 100%;
+}
+
+body {
+  font-size: 1.2rem;
+  color: $color-text;
+  font-family: $font-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $color-background;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 1.6rem;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.view__inner {
+  padding: $u-medium;
+  box-sizing: border-box;
+}
